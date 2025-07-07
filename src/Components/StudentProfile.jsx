@@ -1,31 +1,73 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../Css/StudentProfile.css';
 import studentImg from '../Assets/StudentProfile.png';
+import backgroundImage from '../Assets/BG.png';
 import MaleIcon from '@mui/icons-material/Male';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import HistoryIcon from '@mui/icons-material/History';
 
-const StudentProfile = () => {
+const StudentProfile = ({ onToggle }) => {
+  const [isExpanded, setIsExpanded] = useState(false); // Default to false for off mode
+
+  const handleToggle = (e) => {
+    setIsExpanded(e.target.checked);
+    if (onToggle) onToggle(e.target.checked); // Notify parent component
+  };
+
+ 
+
   return (
-    <div className="student-profile container-fluid m-2 mt-3" style={{ height: '100%', width: '99%' }}>
-      <div className="student-card bg-white border rounded-4 p-3 pb-0 position-relative">
+    <div
+      className="student-profile container-fluid m-2"
+      style={{
+        backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.6) 20%, rgba(255, 255, 255, 0) 100%), url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        height: '90%',
+      }}
+    >
+      <div
+        className="student-card bg-white border rounded-4 p-3 pb-0 position-absolute"
+        style={{
+          width: isExpanded ? '93vw' : '26vw',
+          right: '0',
+          transition: 'width 0.3s ease, right 0.3s ease',
+          zIndex: 1000,
+          overflowX: 'auto',
+           backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.6) 20%, rgba(255, 255, 255, 0) 100%), url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+       
+        }}
+      >
         {/* Show Profile Switch (Top-Right) */}
         <div
-          className="form-check form-switch student-switch "
+          className="form-check form-switch student-switch"
           style={{
             background: 'linear-gradient(90deg, #FFFFFF 30%, #6987FF 100%)',
-            width: '20%',
+            width: isExpanded ? '15%' : '50%',
             position: 'absolute',
             top: '0',
-            right: '0',
-            justifyContent:'right',
-            alignItems:'right',
-             borderTopRightRadius: '10px',
+            right: isExpanded ? '0px' : '0px',
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'flex-end',
+            alignItems: 'center',
+            borderTopRightRadius: '10px',
+            padding: '5px',
+            transition: 'width 0.3s ease, right 0.3s ease',
           }}
         >
-          <label className="form-check-label small" htmlFor="showProfileSwitch">
+          <label className="form-check-label small me-4" htmlFor="showProfileSwitch" style={{ fontSize: '12px', fontWeight: 500, color: '#000000' }}>
             Show Profile
           </label>
-          <input className="form-check-input" type="checkbox" id="showProfileSwitch" defaultChecked />
+          <label className="custom-switch">
+            <input type="checkbox" onChange={handleToggle} />
+            <span className="slider"></span>
+          </label>
         </div>
 
         {/* Main Content */}
@@ -99,8 +141,8 @@ const StudentProfile = () => {
                   Techno
                 </span>
                 <span
-                  className="student-options border rounded-2 d-flex align-items-center justifyContent: 'center'"
-                  style={{ width: '28px', height: '23px' }}
+                  className="student-options border rounded-2 d-flex align-items-center"
+                  style={{ width: '28px', height: '23px', justifyContent: 'center' }}
                 >
                   <MoreHorizIcon sx={{ color: '#616161' }} />
                 </span>
@@ -110,7 +152,7 @@ const StudentProfile = () => {
 
           {/* Right: Details and Actions */}
           <div className="d-flex flex-grow-1 my-4 gap-3">
-            <div className="student-details flex-grow-1">
+            <div className={`student-details flex-grow-1 ${isExpanded ? '' : 'd-none'}`} style={{ transition: 'opacity 0.3s ease' }}>
               <div className="row text-muted small">
                 {/* Row 1 */}
                 <div className="col-md-4 mb-2 student-detail-item">
@@ -165,13 +207,10 @@ const StudentProfile = () => {
               </div>
             </div>
 
-                  
-            <div className="student-actions d-flex flex-column align-items-start gap-2" style={{ width: '20%' }}>
-                  <div className="form-check form-switch  student-switch" >
-            
-            </div>
-              <button className="btn btn-primary w-100 mb-1 student-view-btn">View full Profile</button>
-              <button className="btn btn-outline-primary w-100 student-timeline-btn">⏳ Timeline</button>
+            <div className={`student-actions d-flex flex-column align-items-start gap-2 ${isExpanded ? '' : 'd-none'}`} style={{ width: '20%', transition: 'opacity 0.3s ease' }}>
+              <div className="form-check form-switch student-switch"></div>
+              <button className="btn btn-primary w-100 mb-1 student-view-btn" > <TrendingUpIcon /> View full Profile</button>
+              <button className="btn btn-outline-primary w-100 student-timeline-btn"> <HistoryIcon /> Timeline</button>
             </div>
           </div>
         </div>

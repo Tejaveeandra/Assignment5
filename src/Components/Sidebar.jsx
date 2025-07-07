@@ -25,11 +25,19 @@ const Sidebar = ({ isExpanded }) => {
     const currentPath = location.pathname;
     let currentItem = '';
 
+    // Check if the current path starts with any parent route
+    for (const [path, item] of Object.entries(pathToItemMap)) {
+      if (currentPath.startsWith(path)) {
+        currentItem = item;
+        break;
+      }
+    }
+
+    // Special case for /application (if needed)
     if (currentPath.startsWith('/application')) {
       currentItem = 'Application';
-    } else {
-      currentItem = pathToItemMap[currentPath] || '';
     }
+
     setActiveItem(currentItem);
   }, [location.pathname]);
 
@@ -69,6 +77,7 @@ const Sidebar = ({ isExpanded }) => {
             Students
           </span>
         </Link>
+        {/* Repeat similar structure for other items (Application, Employee, etc.) */}
         <Link
           to="/application"
           className={`sidebar-item d-flex align-items-center gap-2 ${activeItem === 'Application' ? 'custom-active' : ''}`}
