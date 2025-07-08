@@ -36,7 +36,7 @@ const StudentProfile = ({ onToggle }) => {
           transition: 'width 0.3s ease, right 0.3s ease',
           zIndex: 1000,
           overflowX: 'auto',
-           backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.6) 20%, rgba(255, 255, 255, 0) 100%), url(${backgroundImage})`,
+           backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.6) 90%, rgba(255, 255, 255, 0) 100%), url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -48,7 +48,7 @@ const StudentProfile = ({ onToggle }) => {
           className="form-check form-switch student-switch"
           style={{
             background: 'linear-gradient(90deg, #FFFFFF 30%, #6987FF 100%)',
-            width: isExpanded ? '15%' : '50%',
+            width: isExpanded ? '25%' : '50%',
             position: 'absolute',
             top: '0',
             right: isExpanded ? '0px' : '0px',

@@ -62,7 +62,7 @@ const FeeSummary = () => {
     <div
       className="container-fluid p-0"
       style={{
-        maxHeight: '400px', // Fixed height to prevent layout shift
+        maxHeight: '300px', // Fixed height to prevent layout shift
         overflowY: 'auto', // Enable vertical scrolling
         scrollbarWidth: 'none', // Hide scrollbar in Firefox
         msOverflowStyle: 'none', // Hide scrollbar in IE and Edge

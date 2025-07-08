@@ -59,15 +59,16 @@ const StudentInfoHeader = () => {
       </Box>
 
       {/* Right: Class Selector */}
-      <Stack direction="row" spacing={1} alignItems="center" style={{border:'1px', backgroundColor:'#F0F0F0'}}>
+      <Stack direction="row" spacing={1} alignItems="center" style={{border:'4px solid #F0F0F0',borderRadius:'40px', backgroundColor:'#F0F0F0'}}>
         <Button
           size="small"
-          variant="outlined"
+         
           disabled
           sx={{
             backgroundColor: '#f1f1f1',
             color: '#aaa',
             border: 'none',
+            borderRadius:'40px',
             minWidth: '64px',
             textTransform: 'none',
           }}
