@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import MainNavbar from './MainNavbar';
 import StudentInfoHeader from './StudentInfoHeader';
 import FeeSummary from './FeeSummary';
+import Information from './Information';
 
 // Placeholder components for student routes
 const PaymentsPage = () => <div>Payments Page</div>;
@@ -14,7 +15,7 @@ const RoomAllotmentPage = () => <div>Room Allotment Page</div>;
 const IssueFormsPage = () => <div>Issue Forms Page</div>;
 const CertificatesPage = () => <div>Certificates Page Content</div>;
 
-const StudentsLayout = () => {
+const StudentsLayout = ({ isProfileExpanded }) => {
   const location = useLocation();
   const showStudentInfoHeader = location.pathname.endsWith('/studentsprofile');
 
@@ -29,7 +30,7 @@ const StudentsLayout = () => {
       }}
     >
       {/* Left Section (73%) */}
-      <div style={{ width: '73%', padding: '10px' }}>
+      <div style={{ width: '73%', height:'100%', padding: '10px' }}>
         <MainNavbar />
         
         {/* Only show StudentInfoHeader on /students/studentsprofile */}
@@ -37,7 +38,6 @@ const StudentsLayout = () => {
 
         <div style={{ padding: '10px' }}>
           <Routes>
-        
             <Route path="studentsprofile" element={<FeeSummary />} />
             <Route path="payments" element={<PaymentsPage />} />
             <Route path="transport" element={<TransportPage />} />
@@ -55,12 +55,18 @@ const StudentsLayout = () => {
       <div
         style={{
           width: '27%',
+          height:'100%',
           padding: '10px',
           backgroundColor: '#F6F8F9',
           overflowY: 'auto',
         }}
       >
-        <div >Teja</div>
+        <div
+          className='AdditionalInformation'
+          style={{ width: '100%', marginTop: isProfileExpanded ? '0px' : '178px' }}
+        >
+          <Information />
+        </div>
       </div>
     </div>
   );

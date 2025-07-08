@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { useState, useEffect } from 'react';
 import StudentsLayout from './Components/StudentsLayout'; // Student layout (includes student routing)
 
-
 function App() {
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
   const [isProfileExpanded, setIsProfileExpanded] = useState(false);
@@ -67,15 +66,15 @@ const AppContent = ({ isSidebarExpanded, setIsSidebarExpanded, isProfileExpanded
             style={{
               flexGrow: 1,
               padding: '10px',
-              height: '50%',
-              transition: 'transform 0.3s ease',
-              transform: isProfileExpanded ? 'translateY(56%)' : 'translateY(0)',
+              height: isProfileExpanded ? '60%' : '100%',
+              transition: 'transform 0.3s ease, height 0.3s ease',
+              transform: isProfileExpanded ? 'translateY(48%)' : 'translateY(0)',
               position: 'relative',
               width:'100%'
             }}
           >
             <Routes>
-              <Route path="/students/*" element={<StudentsLayout />} />
+              <Route path="/students/*" element={<StudentsLayout isProfileExpanded={isProfileExpanded} />} />
               <Route path="/application/*" element={<div> Application Layout </div>} />
               <Route path="/employee" element={<div>Employee</div>} />
               <Route path="/fleet" element={<div>Fleet</div>} />
