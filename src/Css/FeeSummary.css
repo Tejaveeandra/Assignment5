@@ -1,0 +1,150 @@
+.container-fluid::-webkit-scrollbar {
+  display: none;
+}
+.accordion-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+.fee-details-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #82808F;
+}
+.fee-title {
+  width: 200px;
+  display: inline-block;
+}
+.fee-value {
+  background-color: #E9E8EC;
+  color: #9D9BA1;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+.pocket-money-container {
+  background-color: #FFFFFF;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.pocket-money-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  height: 18px;
+}
+.pocket-money-title {
+  color: #6B6B6B;
+  font-weight: 500;
+  font-size: 15px;
+}
+.pocket-money-balance-label {
+  color: #6B6B6B;
+  font-weight: 500;
+  font-size: 12px;
+  margin-right: 17px;
+}
+.pocket-money-balance-value {
+  color: #E53935;
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+.pocket-money-progress {
+  display: flex;
+  width: 97px;
+  height: 5px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.pocket-money-progress-filled {
+  flex: 2;
+  background-color: #E53935;
+}
+.pocket-money-progress-empty {
+  flex: 3;
+  background-color: #D9D9D9;
+}
+.pocket-money-content {
+  margin-top: 1rem;
+  padding: 0 0.5rem;
+}
+.pocket-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.pocket-item-label {
+  color: #82808F;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+}
+.pocket-item-value {
+  color: #9D9BA1;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background-color: #F3F3F3;
+  text-align: center;
+}
+.pocket-money-card {
+  width: 251px;
+  height: 178px;
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgb(103, 48, 161), rgb(150, 67, 199));
+  padding: 20px;
+  color: white;
+  position: relative;
+}
+.pocket-money-card-admission {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+.pocket-money-card-admission-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.pocket-money-card-student {
+  margin-top: 1rem;
+}
+.pocket-money-card-student-name {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+.pocket-money-card-student-label {
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+.pocket-money-card-balance {
+  position: absolute;
+  bottom: 65px;
+  right: 20px;
+  text-align: right;
+}
+.pocket-money-card-balance-label {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+.pocket-money-card-balance-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.pocket-money-card-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 1);
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  padding: 10px 12px;
+  display: flex;
+  gap: 10px;
+}
+.pocket-money-card-footer figure {
+  display: flex;
+  gap: 10px;
+}

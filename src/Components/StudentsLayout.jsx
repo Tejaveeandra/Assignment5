@@ -60,7 +60,7 @@ const StudentsLayout = () => {
           overflowY: 'auto',
         }}
       >
-        <div style={{}}>Teja</div>
+        <div >Teja</div>
       </div>
     </div>
   );
