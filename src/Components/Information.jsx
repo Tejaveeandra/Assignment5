@@ -45,7 +45,7 @@ const Information = () => {
     );
 
     return (
-        <div id="information_container"> 
+        <div id="information_container">
             <div className="information p-2">
                 {/* Blue Badge Header */}
                 <div className="badge-header d-flex align-items-center gap-2 ">
@@ -103,14 +103,19 @@ const Information = () => {
                         </div>
                     ) : (
                         <div className="p-3">
-                            <label className="form-label small-label" style={{ color: "#999999" }}>Campus:</label>
-                                <span className="form-value" style={{ color: "#4F4F4F" }}> Hitech city</span>
+                            <div className="col-6">
+                                <label className="form-label small-label" style={{ color: "#999999" }}>Campus:</label>
+                                <span className="form-value" style={{ whiteSpace: "noWrap", color: "#4F4F4F" }}> Hitech city</span>
+                            </div>
+                            <div className="col-6">
+                                <label className="form-label small-label" style={{ color: "#999999" }}>Course:</label>
+                                <span className="form-value" style={{ color: "#4F4F4F" }}> CSE</span>
+                            </div>
                         </div>
-                        
                     )}
                 </div>
 
-              
+
 
                 {/* Personal Interests */}
                 <div className="card border border-secondary-subtle rounded-3 shadow-sm mt-3 p-1">
@@ -122,10 +127,14 @@ const Information = () => {
                         </div>
                     ) : (
                         <div className="p-3">
-                            <div className="p-3">
-                            <label className="form-label small-label" style={{ color: "#999999" }}>Hobbies:</label>
-                                <span className="form-value" style={{ color: "#4F4F4F" }}> Reading, Photography</span>
-                        </div>
+                            <div className="col-6">
+                                <label className="form-label small-label" style={{ color: "#999999" }}>Hobbies:</label>
+                                <span className="form-value" style={{ whiteSpace: "noWrap", color: "#4F4F4F" }}> Reading</span>
+                            </div>
+                            <div className="col-6">
+                                <label className="form-label small-label" style={{ color: "#999999" }}>Intrest:</label>
+                                <span className="form-value" style={{ color: "#4F4F4F" }}> Badminton</span>
+                            </div>
                         </div>
                     )}
                 </div>
