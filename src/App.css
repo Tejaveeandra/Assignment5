@@ -1,0 +1,6 @@
+.content-area::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in WebKit browsers */
+}
+.main-container::-webkit-scrollbar{
+    display: 'none';
+}

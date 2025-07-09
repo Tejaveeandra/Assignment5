@@ -3,9 +3,9 @@ import './App.css';
 import Header from './Components/Header';
 import Sidebar from './Components/Sidebar';
 import StudentProfile from './Components/StudentProfile';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import StudentsLayout from './Components/StudentsLayout'; // Student layout (includes student routing)
+import { BrowserRouter as Router, Routes, Route, useMatch } from 'react-router-dom';
+import { useState } from 'react';
+import StudentsLayout from './Components/StudentsLayout';
 
 function App() {
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
@@ -28,14 +28,7 @@ function App() {
 }
 
 const AppContent = ({ isSidebarExpanded, setIsSidebarExpanded, isProfileExpanded, handleProfileToggle }) => {
-  const location = useLocation();
-  const isStudentRoute = location.pathname.startsWith('/students');
-
-  useEffect(() => {
-    if (!isStudentRoute) {
-      handleProfileToggle(false);
-    }
-  }, [location.pathname]);
+  const isStudentRoute = useMatch('/students/*');
 
   return (
     <div className="d-flex flex-column" style={{ height: '100vh', backgroundColor: '#F6F8F9', position: 'relative' }}>
@@ -44,7 +37,6 @@ const AppContent = ({ isSidebarExpanded, setIsSidebarExpanded, isProfileExpanded
       </header>
 
       <main className="d-flex flex-row" style={{ height: '92vh', position: 'relative' }}>
-        {/* Sidebar */}
         <aside
           className="border-end"
           style={{
@@ -59,23 +51,25 @@ const AppContent = ({ isSidebarExpanded, setIsSidebarExpanded, isProfileExpanded
           <Sidebar isExpanded={isSidebarExpanded} />
         </aside>
 
-        {/* Main Content Area */}
-        <div className="main-container d-flex flex-row" style={{ flexGrow: 1, position: 'relative', overflow: 'visible', width:'95vw' }}>
+        <div className="main-container d-flex flex-row" style={{ flexGrow: 1, position: 'relative', overflow: 'auto' ,   scrollbarWidth: 'none', /* Hide scrollbar in Firefox */
+              msOverflowStyle: 'none', /* Hide scrollbar in IE/Edge */ }}>
           <div
             className="content-area d-flex flex-column"
             style={{
               flexGrow: 1,
               padding: '10px',
-              height: isProfileExpanded ? '60%' : '100%',
+              height: isProfileExpanded && isStudentRoute ? '70%' : '100%',
               transition: 'transform 0.3s ease, height 0.3s ease',
-              transform: isProfileExpanded ? 'translateY(48%)' : 'translateY(0)',
+              transform: isProfileExpanded && isStudentRoute ? 'translateY(42%)' : 'translateY(0)',
               position: 'relative',
-              width:'100%'
+              overflowY: 'auto',
+              scrollbarWidth: 'none', /* Hide scrollbar in Firefox */
+              msOverflowStyle: 'none', /* Hide scrollbar in IE/Edge */
             }}
           >
             <Routes>
               <Route path="/students/*" element={<StudentsLayout isProfileExpanded={isProfileExpanded} />} />
-              <Route path="/application/*" element={<div> Application Layout </div>} />
+              <Route path="/application/*" element={<div>Application Layout</div>} />
               <Route path="/employee" element={<div>Employee</div>} />
               <Route path="/fleet" element={<div>Fleet</div>} />
               <Route path="/warehouse" element={<div>Warehouse</div>} />
@@ -89,9 +83,8 @@ const AppContent = ({ isSidebarExpanded, setIsSidebarExpanded, isProfileExpanded
             </Routes>
           </div>
 
-          {/* Student Profile (Floating Panel) */}
           {isStudentRoute && (
-            <div style={{ position: 'absolute', top: 0, right: 0, width:'100%' }}>
+            <div style={{ position: 'absolute', top: 0, right: 0, width: '100%' }}>
               <StudentProfile onToggle={handleProfileToggle} isExpanded={isProfileExpanded} />
             </div>
           )}

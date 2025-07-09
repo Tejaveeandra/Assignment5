@@ -36,9 +36,9 @@ const StudentsLayout = ({ isProfileExpanded }) => {
         {/* Only show StudentInfoHeader on /students/studentsprofile */}
         {showStudentInfoHeader && <StudentInfoHeader />}
 
-        <div style={{ padding: '10px' }}>
+        <div style={{ padding: '10px', overflow:'auto' }}>
           <Routes>
-            <Route path="studentsprofile" element={<FeeSummary />} />
+            <Route path="studentsprofile" element={<FeeSummary isProfileExpanded={isProfileExpanded} />} />
             <Route path="payments" element={<PaymentsPage />} />
             <Route path="transport" element={<TransportPage />} />
             <Route path="academics" element={<AcademicsPage />} />

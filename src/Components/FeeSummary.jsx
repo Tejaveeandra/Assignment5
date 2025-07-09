@@ -3,11 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Css/FeeSummary.css';
 import ScLogo from '../Assets/scLogo.png';
 import ModrenLogo from '../Assets/modernLogo.png';
-
 import { useNavigate } from 'react-router-dom';
 
-
-const FeeSummary = () => {
+const FeeSummary = ({ isProfileExpanded }) => {
   const [expanded, setExpanded] = useState(null);
   const navigate = useNavigate();
 
@@ -75,10 +73,12 @@ const FeeSummary = () => {
     <div
       className="container-fluid p-0"
       style={{
-        maxHeight: '300px', // Fixed height to prevent layout shift
+        maxHeight: isProfileExpanded ? '300px' : 'calc(100vh - 230px)', // Adjusted height when toggle is off
+        height: isProfileExpanded ? '300px' : 'auto', // Allow natural height when toggle is off
         overflowY: 'auto', // Enable vertical scrolling
         scrollbarWidth: 'none', // Hide scrollbar in Firefox
         msOverflowStyle: 'none', // Hide scrollbar in IE and Edge
+        position: 'relative',
       }}
     >
       <div className="accordion" id="feeSummaryAccordion">
@@ -108,16 +108,16 @@ const FeeSummary = () => {
                   }}
                 >
                   <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 22 22"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       fillRule="evenodd"
                       clipRule="evenodd"
-                      d="M8.83958 1.83334C9.71133 1.83426 10.5418 2.25043 11.0625 2.94618L11.8976 4.05718C12.1625 4.40936 12.5832 4.61909 13.0232 4.62001H15.6165C19.0647 4.62001 20.8057 6.43409 20.8057 10.329L20.7801 14.8821C20.7792 18.5194 18.5187 20.7799 14.8795 20.7799H7.746C4.0995 20.7799 1.8335 18.5185 1.8335 14.8793V7.73026C1.8335 3.81701 3.57425 1.83334 7.00625 1.83334H8.83958ZM8.83866 3.20834H7.00625C4.34425 3.20834 3.2085 4.56134 3.2085 7.73026V14.8793C3.2085 17.798 4.82 19.4049 7.746 19.4049H14.8795C17.7982 19.4049 19.4051 17.798 19.4051 14.8793V14.8766L19.4307 10.3253C19.4307 7.20959 18.3619 5.99501 15.6165 5.99501H13.0223C12.1524 5.99409 11.3219 5.57884 10.7994 4.88401L9.9625 3.77118C9.69941 3.41826 9.27866 3.20926 8.83866 3.20834ZM15.3233 13.0284C15.7028 13.0284 16.0108 13.3364 16.0108 13.7159C16.0108 14.0954 15.7028 14.4034 15.3233 14.4034H7.31626C6.93676 14.4034 6.62876 14.0954 6.62876 13.7159C6.62876 13.3364 6.93676 13.0284 7.31626 13.0284H15.3233Z"
+                      d="M7.83909 0.833344C8.71084 0.83426 9.54134 1.25043 10.062 1.94618L10.8971 3.05718C11.162 3.40918 11.5828 3.61909 12.0228 3.62001H14.616C18.1562 3.62001 19.8053 5.43409 19.8053 9.32901L19.7796 13.8821C19.7787 17.5194 17.5182 19.7799 13.879 19.7799H6.74551C3.09901 19.7799 0.833008 17.5185 0.833008 13.8793V6.73026C0.833008 2.81701 2.57376 0.833344 6.00576 0.833344H7.83909ZM7.83817 2.20834H6.00576C3.34376 2.20834 2.20801 3.56134 2.20801 6.73026V13.8793C2.20801 16.798 3.81951 18.4049 6.74551 18.4049H13.879C16.7977 18.4049 18.4046 16.798 18.4046 13.8793V13.8766L18.4303 9.32534C18.4303 6.20959 17.3614 4.99501 14.616 4.99501H12.0218C11.1519 4.99409 10.3214 4.57884 9.79892 3.88401L8.96201 2.77118C8.69892 2.41826 8.27817 2.20926 7.83817 2.20834ZM14.3229 12.0284C14.7024 12.0284 15.0104 12.3364 15.0104 12.7159C15.0104 13.0954 14.7024 13.4034 14.3229 13.4034H6.31577C5.93627 13.4034 5.62827 13.0954 5.62827 12.7159C5.62827 12.3364 5.93627 12.0284 6.31577 12.0284H14.3229Z"
                       fill="#56555C"
                     />
                   </svg>
@@ -137,7 +137,7 @@ const FeeSummary = () => {
                     style={{
                       backgroundColor: '#EEEEEE',
                       color: '#3425FF',
-                      height: '36px',
+                      height: '30px',
                       width: '6rem',
                       fontSize: '14px',
                       fontWeight: 400,
@@ -157,7 +157,7 @@ const FeeSummary = () => {
                     Payment
                   </button>
                   <div className="d-flex align-items-center flex-column">
-                    <div className="d-flex align-items-center mb-1">
+                    <div className="d-flex align-items-center ">
                       <span className="me-5" style={{ color: '#82808F' }}>
                         {isAllCompleted ? 'Completed' : `Term ${activeTermIndex >= 0 ? activeTermIndex + 1 : 3}`}
                       </span>

@@ -1,27 +1,51 @@
 .information {
   width: 100%;
   height: 100%;
-   overflow-y: auto; 
-  scrollbar-width: none;
-  overflow-x:hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+  padding: 12px;
+  background-color: #fff;
+  border: 2px solid #4F4CFE; /* Blue border */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* More depth */
 }
- 
+
+#information_container{
+  position: relative;
+}
+.information::-webkit-scrollbar {
+  width: 8px;
+}
+
+.information::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.information::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.information::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .profile-card {
   width: 99%;
   max-width: 500px;
   margin: 0 auto;
   padding-left: 0px;
-  /* border-radius: 10px; */
   border: 1px solid #e0e0e0;
-  margin-bottom: 10px; /* optional small space between cards */
+  margin-bottom: 10px;
 }
- 
- 
+
 .card-header {
-  padding: 8px 12px;  
+  padding: 8px 12px;
 }
- 
- 
+
 .section-title {
   font-size: 15px;
   font-weight: 600;
@@ -29,8 +53,7 @@
   margin: 0;
   padding: 0;
 }
- 
-/* Toggle Arrow Button */
+
 .toggle-btn {
   font-size: 16px;
   background: transparent;
@@ -39,24 +62,22 @@
   padding: 0;
   margin: 0;
 }
- 
-/* Pill buttons row under collapsed header */
+
 .button-row {
   padding: 6px 12px;
   margin: 0;
   display: flex;
   gap: 8px;
 }
- 
-/* Pill buttons */
-.custom-green  {
+
+.custom-green {
   background-color: #81F9494D !important;
   color: #4A74FD !important;
   font-size: 13px;
   padding: 4px 10px;
   margin: 0;
 }
- 
+
 .custom-pink {
   background-color: #FF55EE4D !important;
   color: #710062 !important;
@@ -64,25 +85,36 @@
   padding: 4px 10px;
   margin: 0;
 }
- 
-/* Opened profile content */
+
 .profile-info-row {
   margin: 0;
   padding: 10px 12px !important;
 }
- 
+
 .profile-info-row .form-label {
   font-size: 12px;
   font-weight: 500;
   color: #555;
   margin: 0;
 }
- 
+
 .profile-info-row .form-value {
   display: block;
   font-size: 12px;
   color: #333;
   margin: 0 0 6px 0;
-
- 
 }
+
+.badge-header {
+  background-color: #4F4CFE;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  border: 2px solid white;
+  position: absolute; /* Removed relative positioning and offset */
+  top: -10px;
+}
+
