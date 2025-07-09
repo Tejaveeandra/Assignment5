@@ -43,3 +43,8 @@ input:checked + .slider {
 input:checked + .slider:before {
   transform: translateX(26px); /* Moves the knob to the right */
 }
+.student-timeline-btn:hover {
+  background-color: transparent;   /* light blue */
+  color: #3425FF;              /* darker text */
+  border-color: #3425FF;       /* light border */
+}

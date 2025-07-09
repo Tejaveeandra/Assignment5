@@ -60,7 +60,7 @@ const AppContent = ({ isSidebarExpanded, setIsSidebarExpanded, isProfileExpanded
               padding: '10px',
               height: isProfileExpanded && isStudentRoute ? '70%' : '100%',
               transition: 'transform 0.3s ease, height 0.3s ease',
-              transform: isProfileExpanded && isStudentRoute ? 'translateY(42%)' : 'translateY(0)',
+              transform: isProfileExpanded && isStudentRoute ? 'translateY(46%)' : 'translateY(0)',
               position: 'relative',
               overflowY: 'auto',
               scrollbarWidth: 'none', /* Hide scrollbar in Firefox */
@@ -84,7 +84,7 @@ const AppContent = ({ isSidebarExpanded, setIsSidebarExpanded, isProfileExpanded
           </div>
 
           {isStudentRoute && (
-            <div style={{ position: 'absolute', top: 0, right: 0, width: '100%' }}>
+            <div style={{ position: 'absolute', top: 0, right: '1rem', width: '100%' }}>
               <StudentProfile onToggle={handleProfileToggle} isExpanded={isProfileExpanded} />
             </div>
           )}

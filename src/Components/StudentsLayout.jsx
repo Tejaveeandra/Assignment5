@@ -30,13 +30,13 @@ const StudentsLayout = ({ isProfileExpanded }) => {
       }}
     >
       {/* Left Section (73%) */}
-      <div style={{ width: '73%', height:'100%', padding: '10px' }}>
+      <div style={{ width: '71%', height: '100%', padding: '10px' }}>
         <MainNavbar />
         
         {/* Only show StudentInfoHeader on /students/studentsprofile */}
         {showStudentInfoHeader && <StudentInfoHeader />}
 
-        <div style={{ padding: '10px', overflow:'auto' }}>
+        <div style={{ padding: '10px', overflow: 'auto' }}>
           <Routes>
             <Route path="studentsprofile" element={<FeeSummary isProfileExpanded={isProfileExpanded} />} />
             <Route path="payments" element={<PaymentsPage />} />
@@ -54,19 +54,21 @@ const StudentsLayout = ({ isProfileExpanded }) => {
       {/* Right Section (27%) */}
       <div
         style={{
-          width: '27%',
-          height:'100%',
+          width: '29%',
+          height: '100%',
           padding: '10px',
           backgroundColor: '#F6F8F9',
           overflowY: 'auto',
         }}
       >
-        <div
-          className='AdditionalInformation'
-          style={{ width: '100%', marginTop: isProfileExpanded ? '0px' : '178px' }}
-        >
-          <Information />
-        </div>
+        {showStudentInfoHeader && (
+          <div
+            className='AdditionalInformation'
+            style={{ width: '100%', marginTop: isProfileExpanded ? '0px' : '195px' }}
+          >
+            <Information />
+          </div>
+        )}
       </div>
     </div>
   );

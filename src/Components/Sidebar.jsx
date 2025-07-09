@@ -47,13 +47,13 @@ const Sidebar = ({ isExpanded }) => {
 
   return (
     <div className={`sidebar ${isExpanded ? 'expanded' : ''}`}>
-      <div className="p-3 d-flex flex-column gap-1">
+      <div className="p-3  d-flex flex-column gap-1">
         <Link
           to="/students"
-          className={`sidebar-item d-flex align-items-center gap-2 ${activeItem === 'Students' ? 'custom-active' : ''}`}
+          className={`sidebar-item d-flex align-items-center gap-2  ${activeItem === 'Students' ? 'custom-active' : ''}` }
           onClick={() => handleItemClick('Students')}
         >
-          <span className="sidebar-icon">
+          <span className="sidebar-icon " >
             <svg
               width="20"
               height="20"

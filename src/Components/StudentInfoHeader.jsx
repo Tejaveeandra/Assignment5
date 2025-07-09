@@ -57,90 +57,82 @@ const StudentInfoHeader = () => {
 </Stack>
       </Box>
 
-      {/* Right: Class Selector */}
-    <Stack
-  direction="row"
-  spacing={2}
-  alignItems="center"
-  style={{
-    border: '1px solid #00000040',       // semi-transparent black border
-    borderRadius: '40px',
-    height:'2.3rem',                // rounded corners
-    backgroundColor: '#F0F0F0'           // light gray background
-  }}
->
-
-        <Button
-          size="small"
-         
-          disabled
-          sx={{
-           
-            color: '#61616161',
-            border: 'none',
-            borderRadius:'40px',
-           fontSize:'13px',
-           fontWeight:400,
-            minWidth: '64px',
-            textTransform: 'none',
-          }}
-        >
-          Class 9
-        </Button>
-        <Button
-          size="small"
-        
-          sx={{
-            backgroundColor: '#5558FF',
-            color: '#FFFFFF',
-            fontSize:'14px',
-            fontWeight:400,
-            borderRadius:'34px',
-            textTransform: 'none',
-            '&:hover': {
-              backgroundColor: '#4a4ddf',
-              
-            },
-          }}
-        >
-          Class 8
-        </Button>
-        <Button
-          size="small"
-        
-          sx={{
-            color: '#616161',
-            fontSize:'13px',
-            fontWeight:400,
-            textTransform: 'none',
-          }}
-        >
-          Class 7
-        </Button>
-        <Button
-          size="small"
-          onClick={handleMoreClick}
-          endIcon={<KeyboardArrowDownIcon />}
-          sx={{
-            textTransform: 'none',
-            fontSize:'14px',
-            fontWeight:400,
-            color: '#616161',
-          }}
-        >
-          More 
-        </Button>
-        <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
-          <MenuItem onClick={handleClose}>Class 6</MenuItem>
-          <MenuItem onClick={handleClose}>Class 5</MenuItem>
-           <MenuItem onClick={handleClose}>Class 4</MenuItem>
-            <MenuItem onClick={handleClose}>Class 3</MenuItem>
-             <MenuItem onClick={handleClose}>Class 2</MenuItem>
-              <MenuItem onClick={handleClose}>Class 1</MenuItem>
-           
-          <MenuItem onClick={handleClose}>Archived</MenuItem>
-        </Menu>
-      </Stack>
+<Stack
+      direction="row"
+      spacing={2}
+      alignItems="center"
+      style={{
+        border: '1px solid #00000040',       // semi-transparent black border
+        borderRadius: '40px',
+        height: '2.6rem',                    // rounded corners
+        backgroundColor: '#F0F0F0',           // light gray background
+        boxShadow: 'inset 0 0 5px rgba(0, 0, 0, 0.2)', // Inner shadow
+      }}
+    >
+      <Button
+        size="small"
+        disabled
+        sx={{
+          color: '#61616161',
+          border: 'none',
+          borderRadius: '40px',
+          fontSize: '13px',
+          fontWeight: 400,
+          minWidth: '64px',
+          textTransform: 'none',
+        }}
+      >
+        Class 9
+      </Button>
+      <Button
+        size="small"
+        sx={{
+          backgroundColor: '#5558FF',
+          color: '#FFFFFF',
+          fontSize: '14px',
+          fontWeight: 400,
+          borderRadius: '34px',
+          textTransform: 'none',
+          '&:hover': {
+            backgroundColor: '#4a4ddf',
+          },
+        }}
+      >
+        Class 8
+      </Button>
+      <Button
+        size="small"
+        sx={{
+          color: '#616161',
+          fontSize: '13px',
+          fontWeight: 400,
+          textTransform: 'none',
+        }}
+      >
+        Class 7
+      </Button>
+      <Button
+        size="small"
+        onClick={handleMoreClick}
+        sx={{
+          textTransform: 'none',
+          fontSize: '14px',
+          fontWeight: 400,
+          color: '#616161',
+        }}
+      >
+        More <KeyboardArrowDownIcon />
+      </Button>
+      <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
+        <MenuItem onClick={handleClose}>Class 6</MenuItem>
+        <MenuItem onClick={handleClose}>Class 5</MenuItem>
+        <MenuItem onClick={handleClose}>Class 4</MenuItem>
+        <MenuItem onClick={handleClose}>Class 3</MenuItem>
+        <MenuItem onClick={handleClose}>Class 2</MenuItem>
+        <MenuItem onClick={handleClose}>Class 1</MenuItem>
+        <MenuItem onClick={handleClose}>Archived</MenuItem>
+      </Menu>
+    </Stack>
     </Box>
   );
 };

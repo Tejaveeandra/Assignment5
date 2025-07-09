@@ -15,8 +15,6 @@ const StudentProfile = ({ onToggle }) => {
     if (onToggle) onToggle(e.target.checked); // Notify parent component
   };
 
- 
-
   return (
     <div
       className="student-profile container-fluid m-2"
@@ -26,22 +24,21 @@ const StudentProfile = ({ onToggle }) => {
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         height: '90%',
-        width:'100%',
+        width: '100%',
       }}
     >
       <div
-        className="student-card bg-white border rounded-4 p-3 pb-0 position-absolute"
+        className="student-card bg-white border rounded-4 p-3 pb-2 mt-3 position-absolute"
         style={{
-          width: isExpanded ? '100%' : '26vw',
+          width: isExpanded ? '98%' : '24vw',
           right: '0',
           transition: 'width 0.3s ease, right 0.3s ease',
           zIndex: 1000,
           overflowX: 'auto',
-           backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.6) 90%, rgba(255, 255, 255, 0) 100%), url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-       
+          backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.6) 90%, rgba(255, 255, 255, 0) 100%), url(${backgroundImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
         }}
       >
         {/* Show Profile Switch (Top-Right) */}
@@ -63,7 +60,7 @@ const StudentProfile = ({ onToggle }) => {
           }}
         >
           <label className="form-check-label small me-4" htmlFor="showProfileSwitch" style={{ fontSize: '12px', fontWeight: 500, color: '#000000' }}>
-            Show Profile
+            {isExpanded ? 'Hide Profile' : 'Show Profile'}
           </label>
           <label className="custom-switch">
             <input type="checkbox" onChange={handleToggle} />
@@ -72,7 +69,7 @@ const StudentProfile = ({ onToggle }) => {
         </div>
 
         {/* Main Content */}
-        <div className="d-flex justify-content-between gap-5">
+        <div className={`d-flex ${isExpanded ? 'justify-content-between gap-5' : 'justify-content-start'}`}>
           {/* Left: Image and Basic Info */}
           <div className="student-basic d-flex align-items-center gap-3" style={{ marginBottom: '0px', height: '40%' }}>
             <div className="student-image">
@@ -152,7 +149,7 @@ const StudentProfile = ({ onToggle }) => {
           </div>
 
           {/* Right: Details and Actions */}
-          <div className="d-flex flex-grow-1 my-4 gap-3">
+          <div className={`d-flex flex-grow-1 my-4 gap-3 ${isExpanded ? '' : 'd-none'}`}>
             <div className={`student-details flex-grow-1 ${isExpanded ? '' : 'd-none'}`} style={{ transition: 'opacity 0.3s ease' }}>
               <div className="row text-muted small">
                 {/* Row 1 */}
@@ -208,10 +205,10 @@ const StudentProfile = ({ onToggle }) => {
               </div>
             </div>
 
-            <div className={`student-actions d-flex flex-column align-items-start gap-2 ${isExpanded ? '' : 'd-none'}`} style={{ width: '20%', transition: 'opacity 0.3s ease' }}>
+            <div className={`student-actions d-flex flex-column align-items-end gap-2 ${isExpanded ? '' : 'd-none'}`} style={{ width: '20%', transition: 'opacity 0.3s ease' }}>
               <div className="form-check form-switch student-switch"></div>
-              <button className="btn btn-primary w-100 mb-1 student-view-btn" > <TrendingUpIcon /> View full Profile</button>
-              <button className="btn btn-outline-primary w-100 student-timeline-btn"> <HistoryIcon /> Timeline</button>
+              <button className="btn  w-100 mb-1 student-view-btn" style={{backgroundColor:'#3425FF', color:'#F6F8F9'}}> <TrendingUpIcon /> View full Profile</button>
+              <button className="btn btn-outline-primary w-70 student-timeline-btn" > <HistoryIcon /> Timeline</button>
             </div>
           </div>
         </div>

@@ -132,30 +132,34 @@ const FeeSummary = ({ isProfileExpanded }) => {
                     marginLeft: 'auto',
                   }}
                 >
-                  <button
-                    className="btn btn-sm"
-                    style={{
-                      backgroundColor: '#EEEEEE',
-                      color: '#3425FF',
-                      height: '30px',
-                      width: '6rem',
-                      fontSize: '14px',
-                      fontWeight: 400,
-                    }}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      fill="currentColor"
-                      className="bi bi-plus"
-                      viewBox="0 0 16 16"
-                      style={{ marginRight: '4px' }}
-                    >
-                      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                    </svg>
-                    Payment
-                  </button>
+             <button
+  className="btn btn-sm"
+  style={{
+    backgroundColor: '#EEEEEE',
+    color: '#3425FF',
+    height: '30px',
+    width: '6rem',
+    fontSize: '14px',
+    fontWeight: 400,
+    display: 'flex',              // Enable flexbox
+    alignItems: 'center',         // Vertically center items
+    justifyContent: 'center',     // Horizontally center items
+    gap: '4px',                   // Add spacing between SVG and text
+  }}
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    fill="currentColor"
+    className="bi bi-plus"
+    viewBox="0 0 16 16"
+    style={{ marginRight: '0' }}  // Remove margin since gap handles spacing
+  >
+    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+  </svg>
+  Payment
+</button>
                   <div className="d-flex align-items-center flex-column">
                     <div className="d-flex align-items-center ">
                       <span className="me-5" style={{ color: '#82808F' }}>
@@ -176,8 +180,8 @@ const FeeSummary = ({ isProfileExpanded }) => {
                     </div>
                     <div
                       style={{
-                        width: '200px',
-                        height: '10px',
+                        width: '130px',
+                        height: '6px',
                         display: 'flex',
                         backgroundColor: '#e9ecef',
                         borderRadius: '5px',
@@ -192,7 +196,8 @@ const FeeSummary = ({ isProfileExpanded }) => {
                           style={{
                             flex: 1,
                             backgroundColor: segmentColors[index],
-                            borderRight: index < termTargets.length - 1 ? '1px solid #000' : 'none',
+                           
+                            borderRight: index < termTargets.length - 1 ? '3px solid #FFFFFF' : 'none', // Changed to white
                           }}
                         />
                       ))}
@@ -211,46 +216,46 @@ const FeeSummary = ({ isProfileExpanded }) => {
             <div className="accordion-body p-0" style={{ backgroundColor: '#FFFFFF' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <div style={{ flex: 1, paddingTop: '1rem', paddingLeft: '4rem', paddingBottom: '1rem' }}>
-                  <p className="fee-details-text mb-2 d-flex align-items-center">
-                    <span className="fee-title"><strong>Course Fee</strong></span>
+                  <p className="fee-details-text mb-2" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <span className="fee-title" style={{ minWidth: '120px', fontWeight: 'bold' }}>Course Fee</span>
                     <span className="fee-value">{grandTarget.toLocaleString()}</span>
                   </p>
-                  <p className="fee-details-text mb-2 d-flex align-items-center">
-                    <span className="fee-title"><strong>Add’l Amount</strong></span>
+                  <p className="fee-details-text mb-2" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <span className="fee-title" style={{ minWidth: '120px', fontWeight: 'bold' }}>Add’l Amount</span>
                     <span className="fee-value">{additionalAmount.toLocaleString()}</span>
                   </p>
-                  <p className="fee-details-text mb-2 d-flex align-items-center">
-                    <span className="fee-title"><strong>Concession</strong></span>
+                  <p className="fee-details-text mb-2" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <span className="fee-title" style={{ minWidth: '120px', fontWeight: 'bold' }}>Concession</span>
                     <span className="fee-value">{concession.toLocaleString()}</span>
                   </p>
-                  <p className="fee-details-text mb-2 d-flex align-items-center">
-                    <span className="fee-title"><strong>Net Fee</strong></span>
+                  <p className="fee-details-text mb-2" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <span className="fee-title" style={{ minWidth: '120px', fontWeight: 'bold' }}>Net Fee</span>
                     <span className="fee-value">{netFee.toLocaleString()}</span>
                   </p>
-                  <p className="fee-details-text mb-2 d-flex align-items-center">
-                    <span className="fee-title"><strong>Service Tax Paid</strong></span>
+                  <p className="fee-details-text mb-2" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <span className="fee-title" style={{ minWidth: '120px', fontWeight: 'bold' }}>Service Tax Paid</span>
                     <span className="fee-value">{serviceTaxPaid.toLocaleString()}</span>
                   </p>
                 </div>
                 <div style={{ flex: 1, paddingTop: '1rem', paddingBottom: '1rem' }}>
-                  <p className="fee-details-text mb-2 d-flex align-items-center">
-                    <span className="fee-title"><strong>Fee Paid</strong></span>
+                  <p className="fee-details-text mb-2" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <span className="fee-title" style={{ minWidth: '120px', fontWeight: 'bold' }}>Fee Paid</span>
                     <span className="fee-value">{currentValue.toLocaleString()}</span>
                   </p>
-                  <p className="fee-details-text mb-2 d-flex align-items-center">
-                    <span className="fee-title"><strong>Fee Deduction</strong></span>
+                  <p className="fee-details-text mb-2" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <span className="fee-title" style={{ minWidth: '120px', fontWeight: 'bold' }}>Fee Deduction</span>
                     <span className="fee-value">{feeDeduction.toLocaleString()}</span>
                   </p>
-                  <p className="fee-details-text mb-2 d-flex align-items-center">
-                    <span className="fee-title"><strong>Fee Refund</strong></span>
+                  <p className="fee-details-text mb-2" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <span className="fee-title" style={{ minWidth: '120px', fontWeight: 'bold' }}>Fee Refund</span>
                     <span className="fee-value">{feeRefund.toLocaleString()}</span>
                   </p>
-                  <p className="fee-details-text mb-2 d-flex align-items-center">
-                    <span className="fee-title"><strong>Over All Due</strong></span>
+                  <p className="fee-details-text mb-2" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <span className="fee-title" style={{ minWidth: '120px', fontWeight: 'bold' }}>Over All Due</span>
                     <span className="fee-value">{overallDue.toLocaleString()}</span>
                   </p>
-                  <p className="fee-details-text mb-2 d-flex align-items-center">
-                    <span className="fee-title"><strong>Service Tax to be Paid</strong></span>
+                  <p className="fee-details-text mb-2" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <span className="fee-title" style={{ minWidth: '120px', fontWeight: 'bold' }}>Service Tax to be Paid</span>
                     <span className="fee-value">{serviceTaxToBePaid.toLocaleString()}</span>
                   </p>
                 </div>
@@ -402,7 +407,7 @@ const FeeSummary = ({ isProfileExpanded }) => {
                   }}
                 >
                   <div className="d-flex align-items-center">
-                    <span className=" me-2"style={{color:'#82808F'}}>Status:</span>
+                    <span className=" me-2" style={{color:'#82808F'}}>Status:</span>
                     <span className=" fw-bold" style={{color:'#08b61A'}}>Assigned</span>
                   </div>
                 </div>
@@ -416,14 +421,11 @@ const FeeSummary = ({ isProfileExpanded }) => {
             data-bs-parent="#feeSummaryAccordion"
           >
             <div className="accordion-body p-4 px-5" style={{backgroundColor:'#FFFFFF'}}>
-          
-            
-                 <div className="col-md-6">
-                  <PocketItem label="Pocket Refund" value="0" />
-                  <PocketItem label="Deposited Amount" value="7,000" />
-                  <PocketItem label="Taken Amount" value="5,492" />
-                </div>
-            
+              <div className="col-md-6">
+                <PocketItem label="Pocket Refund" value="0" />
+                <PocketItem label="Deposited Amount" value="7,000" />
+                <PocketItem label="Taken Amount" value="5,492" />
+              </div>
             </div>
           </div>
         </div>
@@ -490,15 +492,12 @@ const FeeSummary = ({ isProfileExpanded }) => {
             aria-labelledby="refunds-header"
             data-bs-parent="#feeSummaryAccordion"
           >
-              <div className="accordion-body p-4 px-5" style={{backgroundColor:'#FFFFFF'}}>
-          
-            
-                 <div className="col-md-6">
-                  <PocketItem label="Pocket Refund" value="0" />
-                  <PocketItem label="Deposited Amount" value="7,000" />
-                  <PocketItem label="Taken Amount" value="5,492" />
-                </div>
-            
+            <div className="accordion-body p-4 px-5" style={{backgroundColor:'#FFFFFF'}}>
+              <div className="col-md-6">
+                <PocketItem label="Pocket Refund" value="0" />
+                <PocketItem label="Deposited Amount" value="7,000" />
+                <PocketItem label="Taken Amount" value="5,492" />
+              </div>
             </div>
           </div>
         </div>
@@ -566,14 +565,11 @@ const FeeSummary = ({ isProfileExpanded }) => {
             data-bs-parent="#feeSummaryAccordion"
           >
             <div className="accordion-body p-4 px-5" style={{backgroundColor:'#FFFFFF'}}>
-          
-            
-                 <div className="col-md-6">
-                  <PocketItem label="Pocket Refund" value="0" />
-                  <PocketItem label="Deposited Amount" value="7,000" />
-                  <PocketItem label="Taken Amount" value="5,492" />
-                </div>
-            
+              <div className="col-md-6">
+                <PocketItem label="Pocket Refund" value="0" />
+                <PocketItem label="Deposited Amount" value="7,000" />
+                <PocketItem label="Taken Amount" value="5,492" />
+              </div>
             </div>
           </div>
         </div>

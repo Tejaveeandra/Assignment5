@@ -103,9 +103,10 @@ const Information = () => {
                         </div>
                     ) : (
                         <div className="p-3">
-                            <p><strong>Campus:</strong> HITEC City</p>
-                            <p><strong>Course:</strong> B.Tech (CSE)</p>
+                            <label className="form-label small-label" style={{ color: "#999999" }}>Campus:</label>
+                                <span className="form-value" style={{ color: "#4F4F4F" }}> Hitech city</span>
                         </div>
+                        
                     )}
                 </div>
 
@@ -121,8 +122,10 @@ const Information = () => {
                         </div>
                     ) : (
                         <div className="p-3">
-                            <p><strong>Hobbies:</strong> Reading, Photography</p>
-                            <p><strong>Interests:</strong> Technology, Travel</p>
+                            <div className="p-3">
+                            <label className="form-label small-label" style={{ color: "#999999" }}>Hobbies:</label>
+                                <span className="form-value" style={{ color: "#4F4F4F" }}> Reading, Photography</span>
+                        </div>
                         </div>
                     )}
                 </div>

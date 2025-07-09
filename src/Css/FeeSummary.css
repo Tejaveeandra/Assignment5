@@ -12,6 +12,9 @@
 }
 .fee-title {
   width: 200px;
+  font-size:14px;
+  font-weight:500;
+  color: #82808F;
   display: inline-block;
 }
 .fee-value {
@@ -34,24 +37,24 @@
   height: 18px;
 }
 .pocket-money-title {
-  color: #6B6B6B;
+  color: #56555C;
   font-weight: 500;
   font-size: 15px;
 }
 .pocket-money-balance-label {
-  color: #6B6B6B;
+  color: #82808F;
   font-weight: 500;
   font-size: 12px;
   margin-right: 17px;
 }
 .pocket-money-balance-value {
-  color: #E53935;
+  color: #EF2C2C;
   font-weight: 500;
   font-size: 0.8rem;
 }
 .pocket-money-progress {
   display: flex;
-  width: 97px;
+  width: 100px;
   height: 5px;
   border-radius: 4px;
   overflow: hidden;
@@ -77,7 +80,7 @@
 .pocket-item-label {
   color: #82808F;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: normal;
 }
 .pocket-item-value {
