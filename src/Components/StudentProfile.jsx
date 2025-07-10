@@ -30,7 +30,7 @@ const StudentProfile = ({ onToggle }) => {
       <div
         className="student-card bg-white border rounded-4 p-3 pb-2 mt-3 position-absolute"
         style={{
-          width: isExpanded ? '98%' : '24vw',
+          width: isExpanded ? '98%' : '23vw',
           right: '0',
           transition: 'width 0.3s ease, right 0.3s ease',
           zIndex: 1000,
@@ -60,7 +60,7 @@ const StudentProfile = ({ onToggle }) => {
           }}
         >
           <label className="form-check-label small me-4" htmlFor="showProfileSwitch" style={{ fontSize: '12px', fontWeight: 500, color: '#000000' }}>
-            {isExpanded ? 'Hide Profile' : 'Show Profile'}
+            {isExpanded ? 'show Profile' : 'Show Profile'}
           </label>
           <label className="custom-switch">
             <input type="checkbox" onChange={handleToggle} />

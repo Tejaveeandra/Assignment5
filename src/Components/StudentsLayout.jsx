@@ -24,13 +24,14 @@ const StudentsLayout = ({ isProfileExpanded }) => {
       style={{
         display: 'flex',
         flexDirection: 'row',
+        justifyContent: 'space-between', // Distributes space between the sections
         width: '100%',
         height: '100%',
         backgroundColor: '#F6F8F9',
       }}
     >
       {/* Left Section (73%) */}
-      <div style={{ width: '71%', height: '100%', padding: '10px' }}>
+      <div style={{ width: '73%', height: '100%', padding: '10px' }}>
         <MainNavbar />
         
         {/* Only show StudentInfoHeader on /students/studentsprofile */}
@@ -54,7 +55,7 @@ const StudentsLayout = ({ isProfileExpanded }) => {
       {/* Right Section (27%) */}
       <div
         style={{
-          width: '29%',
+          width: '27%', // Adjusted to make total width 100%
           height: '100%',
           padding: '10px',
           backgroundColor: '#F6F8F9',

@@ -82,9 +82,7 @@ const MainNavbar = () => {
         onClick={scrollRight}
         style={{ position: "absolute", right: "5px", top: "50%", transform: "translateY(-50%)", display: "none", zIndex: 1 }} // zIndex to ensure it’s above content
       >
-        <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M11 1L2 10L11 19" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
+        
       </button>
       <button
         ref={leftArrowRef}
@@ -92,9 +90,7 @@ const MainNavbar = () => {
         onClick={scrollLeft}
         style={{ position: "absolute", left: "5px", top: "50%", transform: "translateY(-50%)", display: "none", zIndex: 1 }} // zIndex to ensure it’s above content
       >
-        <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 1L10 10L1 19" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
+     
       </button>
     </div>
   );
